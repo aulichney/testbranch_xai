@@ -18,7 +18,7 @@ class Base_CNN(torch.nn.Module):
             checkpoint_path=checkpoint_path
         )
         self.LogSoftmax = nn.LogSoftmax(dim=1)
-    
+
     def forward(self, input_image):
         out = self.model(input_image)
         logits = self.LogSoftmax(out)
@@ -41,22 +41,22 @@ class CNN(pl.LightningModule):
         self.valid_acc = torchmetrics.Accuracy()
         self.train_cm = torchmetrics.ConfusionMatrix(num_classes=num_classes)
         self.valid_cm = torchmetrics.ConfusionMatrix(num_classes=num_classes)
-        self.train_f1 = torchmetrics.F1(num_classes=num_classes)
-        self.valid_f1 = torchmetrics.F1(num_classes=num_classes)
+        self.train_f1 = torchmetrics.F1Score(num_classes=num_classes)
+        self.valid_f1 = torchmetrics.F1Score(num_classes=num_classes)
         self.loss_criterion = getattr(torch.nn, loss_name)()
         self.learning_rate = learning_rate
         self.optimizer_config = optimizer_config
         self.scheduler_config = scheduler_config
         self.scheduler_monitor = scheduler_monitor
-    
+
     def forward(self, input_image):
         out = self.model(input_image)
         logits = self.LogSoftmax(out)
         return logits
-    
+
     def configure_optimizers(self):
         self.optimizer = getattr(torch.optim, self.optimizer_config["type"])(params=self.parameters(), **{**{k:v for k,v in self.optimizer_config.items() if k!="type"}, **{"lr":self.learning_rate}})
-        self.scheduler = getattr(torch.optim.lr_scheduler, self.scheduler_config["type"])(optimizer=self.optimizer, **{k:v for k,v in self.scheduler_config.items() if k!="type"}) 
+        self.scheduler = getattr(torch.optim.lr_scheduler, self.scheduler_config["type"])(optimizer=self.optimizer, **{k:v for k,v in self.scheduler_config.items() if k!="type"})
         self.lr_scheduler = {
             'scheduler': self.scheduler,
             'name': 'learning_rate',
@@ -64,7 +64,7 @@ class CNN(pl.LightningModule):
             'monitor': self.scheduler_monitor,
             'frequency': 1}
         return [self.optimizer], [self.lr_scheduler]
-    
+
     def training_step(self, batch, batch_idx):
         x, y = batch
         logits = self(x)
@@ -86,7 +86,7 @@ class CNN(pl.LightningModule):
         self.valid_cm(y_hat_prob, y)
         self.valid_f1(y_hat_prob, y)
         return {"loss": loss}
-    
+
     def training_epoch_end(self, outputs):
         loss_train = torch.stack([x['loss'] for x in outputs]).mean()
         self.log('train_loss_epoch', loss_train, on_step=False, on_epoch=True)
@@ -96,7 +96,7 @@ class CNN(pl.LightningModule):
         self.log('train_f1_epoch', train_f1, on_step=False, on_epoch=True)
         lr = float(self.optimizer.param_groups[0]['lr'])
         self.log('learning_rate', lr, on_step=False, on_epoch=True)
-    
+
     def validation_epoch_end(self, outputs):
         loss_val = torch.stack([x['loss'] for x in outputs]).mean()
         self.log('valid_loss_epoch', loss_val, on_step=False, on_epoch=True)
