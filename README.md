@@ -73,7 +73,7 @@ python run.py train --path_model_config="./data/configs/model_resnet18.json" --p
 ```
 
 ```bash
-python run.py train --path_model_config="./data/configs/model_vgg16.json" --path_dataset_config="./data/configs/dataset_$AB.json" --path_training_config="./data/configs/training_plateau.json" --path_output="./data/models/AB_vgg_16_plateau_1" --seed=1 2>&1 | tee -a "./data/logs/training_AB_vgg16_plateau_1.txt"
+python run.py train --path_model_config="./data/configs/model_vgg16.json" --path_dataset_config="./data/configs/dataset_AB.json" --path_training_config="./data/configs/training_plateau.json" --path_output="./data/models/AB_vgg_16_plateau_1" --seed=1 2>&1 | tee -a "./data/logs/training_AB_vgg16_plateau_1.txt"
 ```
 
 ## Executing ECLAD, ACE, and ConceptShap
