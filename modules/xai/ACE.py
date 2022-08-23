@@ -7,7 +7,7 @@ import shutil
 import pickle
 
 #from skimage import segmentation
-from scikit-image import segmentation
+from skimage import segmentation
 import sklearn.cluster as cluster
 from modules.utils.loggers import create_logger
 from modules.activations.activations_pytorch import get_layers, get_gradients, get_activations
