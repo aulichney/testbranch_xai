@@ -72,6 +72,10 @@ For example, to train a resnet18, for the AB dataset, with a plateau regime, wit
 python run.py train --path_model_config="./data/configs/model_resnet18.json" --path_dataset_config="./data/configs/dataset_AB.json" --path_training_config="./data/configs/training_plateau.json" --path_output="./data/models/AB_resnet18_plateau_0" --seed=0 2>&1 | tee -a "./data/logs/training_AB_resnet18_plateau_0.txt"
 ```
 
+```bash
+python run.py train --path_model_config="./data/configs/model_vgg16.json" --path_dataset_config="./data/configs/dataset_AB.json" --path_training_config="./data/configs/training_plateau.json" --path_output="./data/models/AB_vgg_16_plateau_1" --seed=1 2>&1 | tee -a "./data/logs/training_AB_vgg16_plateau_1.txt"
+```
+
 ## Executing ECLAD, ACE, and ConceptShap
 
 Similar to the training, the configurations for the model, dataset, training and xai method must be present in ```./data/configs```.
