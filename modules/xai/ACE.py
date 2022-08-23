@@ -6,7 +6,8 @@ import pandas as pd
 import shutil
 import pickle
 
-from skimage import segmentation
+#from skimage import segmentation
+from scikit-image import segmentation
 import sklearn.cluster as cluster
 from modules.utils.loggers import create_logger
 from modules.activations.activations_pytorch import get_layers, get_gradients, get_activations
@@ -22,7 +23,7 @@ def slice_slic(image, n_segments=[15,50,80], compactness=20.0, sigma=1.0, unique
     for n_seg in n_segments:
         # get segments
         segments = segmentation.slic(
-            image, 
+            image,
             n_segments=n_seg,
             compactness=compactness,
             sigma=sigma,
@@ -48,8 +49,8 @@ def slice_slic(image, n_segments=[15,50,80], compactness=20.0, sigma=1.0, unique
     return masks
 
 class ACE:
-    def __init__(self, 
-        save_path, 
+    def __init__(self,
+        save_path,
         model,
         transforms,
         class_to_idx=None,
@@ -154,20 +155,20 @@ class ACE:
                 self.build_random(self.class_paths, random_path, n=self.n_tcav_samples*5, save_list=True)
                 # test concept
                 cav, score_mean, score_std, pval, acc, available_images = self.tcav(
-                    concept_paths[idx], 
+                    concept_paths[idx],
                     random_path,
                     self.class_paths[class_name],
                     results_path,
                     class_idx=class_idx,
-                    n=self.n_tcav_repetitions, 
+                    n=self.n_tcav_repetitions,
                     workers=self.workers_tcav)
             else:
                 cav, score_mean, score_std, pval, acc = None, 0.5, 0, 1.0, 0.0
                 random_path = None
             results.append(
                 {
-                    "cav":cav, "score_mean":score_mean, "score_std":score_std, "pval":pval, "acc":acc, 
-                    "concept_path":concept_paths[idx], "random_path":random_path, 
+                    "cav":cav, "score_mean":score_mean, "score_std":score_std, "pval":pval, "acc":acc,
+                    "concept_path":concept_paths[idx], "random_path":random_path,
                     "idx":idx, "name":f"c_{idx:02}_{class_name}", "n":available_images, "class":class_name
                 }
             )
@@ -177,7 +178,7 @@ class ACE:
         with open(filename, 'w') as f:
             json.dump(results, f, indent=4)
         return results
-    
+
     def generate_patches(self, class_path, results_path):
         # glob images in folder
         image_paths = sorted([p for p in Path(class_path).glob("*") if p.suffix in [".jpg", ".jpeg", ".png", ".bmp", ".gif"]])[:self.n_limit_images]
@@ -201,16 +202,16 @@ class ACE:
 
     def encode_folder(self, results_path, class_idx):
         acts_list, grads_list = encode_folder(
-            self.model, 
+            self.model,
             results_path,
             results_path,
-            self.tcav_layer, class_idx, 
-            self.transforms, 
-            workers=self.workers_activations, 
-            batch_size=self.batch_size, 
+            self.tcav_layer, class_idx,
+            self.transforms,
+            workers=self.workers_activations,
+            batch_size=self.batch_size,
             device=self.device)
         return acts_list, grads_list
-    
+
     def cluster(self, acts_list):
         # reshape
         acts_list = acts_list.reshape(acts_list.shape[0],-1)
@@ -228,7 +229,7 @@ class ACE:
         cluster_assignment[cost<threshold]=-1
         # save clustering model
         return km, cluster_assignment
-    
+
     def move(self, results_path, clusters, acts_list, grads_list, class_name, class_idx):
         # get list of images
         image_paths = sorted([p for p in Path(results_path).glob("*") if p.suffix in [".jpg", ".jpeg", ".png", ".bmp", ".gif"]])
@@ -265,13 +266,13 @@ class ACE:
 
     def tcav(self, concept_path, random_path, class_path, results_path, class_idx, n=50, workers=1):
         cav, score_mean, score_std, pval, acc, available_images = tcav(
-            self.model, self.transforms, self.tcav_layer, 
-            concept_path, random_path, 
-            class_path, results_path, 
-            class_idx, samples=self.n_tcav_samples, n=self.n_tcav_repetitions, 
+            self.model, self.transforms, self.tcav_layer,
+            concept_path, random_path,
+            class_path, results_path,
+            class_idx, samples=self.n_tcav_samples, n=self.n_tcav_repetitions,
             device=self.device, batch_size=self.batch_size, rng=self.rng)
         return cav, score_mean, score_std, pval, acc, available_images
-    
+
     def clean(self):
         for class_name, class_idx in self.class_to_idx.items():
             for c_p in (Path(self.save_path)/class_name).glob("*"):
