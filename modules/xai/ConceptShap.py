@@ -27,7 +27,7 @@ class conceptShapModel(nn.Module):
         self.n_concepts = n_concepts
         self.n_features = n_features
         self.B_threshold = B_threshold
-        
+
         self.g = nn.Sequential(
                 nn.Linear(n_concepts, 500),
                 nn.ReLU(),
@@ -38,7 +38,7 @@ class conceptShapModel(nn.Module):
     def forward(self, x):
         g_vc_flat = self.g(x)
         return g_vc_flat
-    
+
     def vc(self, x):
         vc_flat = self.C(x)
         vc_flat = nn.Threshold(self.B_threshold, 0, inplace=False)(vc_flat)
@@ -46,11 +46,11 @@ class conceptShapModel(nn.Module):
         return vc_flat
 
 class ConceptShap:
-    def __init__(self, 
-        save_path, 
+    def __init__(self,
+        save_path,
         model,
         transforms,
-        train_loader, 
+        train_loader,
         val_loader,
         class_to_idx=None,
         class_paths=None,
@@ -143,7 +143,7 @@ class ConceptShap:
         self.save()
         self.clean()
         self.logger.debug("Finishing ConceptShap.")
-    
+
     def init_cshap_model(self):
         # get size of features
         if self.n_features is None:
@@ -161,7 +161,7 @@ class ConceptShap:
         self.cshap_model = self.cshap_model.to(self.device)
         self.cshap_concepts = self.cshap_model.C.weight.detach().cpu().numpy().tolist()
 
-    
+
     def evalConceptShapModel(self, x):
         self.model.to(self.device)
         self.cshap_model.to(self.device)
@@ -219,7 +219,7 @@ class ConceptShap:
             losses = []
             train_acc = torchmetrics.Accuracy()
             train_cm = torchmetrics.ConfusionMatrix(num_classes=len(self.class_to_idx.values()))
-            train_f1 = torchmetrics.F1(num_classes=len(self.class_to_idx.values()))
+            train_f1 = torchmetrics.F1Score(num_classes=len(self.class_to_idx.values()))
             for batch_idx, (data, target) in enumerate(self.train_loader):
                 x, y = data.to(self.device), target.to(self.device)
                 optimizer.zero_grad()
@@ -310,7 +310,7 @@ class ConceptShap:
                 logits = self.model(x)
                 y_hat_prob = F.softmax(logits, dim=-1)
                 train_acc_model(y_hat_prob.cpu(), y.cpu())
-        
+
         acc_concepts = train_acc.compute().tolist()
         if acc_model is None: acc_model = train_acc_model.compute().tolist()
         completeness = (acc_concepts - acc_rand) / (acc_model - acc_rand)
@@ -445,7 +445,7 @@ class ConceptShap:
             "cshap_alpha": self.cshap_alpha,
             "n_features": self.n_features
         }
-        
+
         with open((Path(self.save_path)/"results.json").as_posix(), 'w') as f:
             json.dump(config, f, indent=4)
         if self.cshap_model is not None:
