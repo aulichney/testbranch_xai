@@ -1,0 +1,16 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/hazelnut",
+    "base_path": "./data/datasets/hazelnut/train",
+    "name": "hazelnut",
+    "components": "./data/datasets/hazelnut/components",
+    "ground_truth": "./data/datasets/hazelnut/ground_truth",
+    "classes": [
+        "crack",
+        "cut",
+        "good",
+        "hole",
+        "print"
+    ],
+    "dataset_type": "classification"
+}

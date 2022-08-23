@@ -1,0 +1,19 @@
+{
+    "type": "model",
+    "classes": ["0","1"],
+    "class_to_idx": {"0":0, "1":1},
+    "num_classes": 2,
+    "in_chans": 3,
+    "model_name": "resnet18",
+    "pretrained": true,
+    "checkpoint_path": null,
+    "tcav_layer":"model.global_pool.pool",
+    "cshap_layer":"model.layer4.1.act2",
+    "gradcam_layer" : "model.layer4.1.act2",
+    "eclad_layers":[
+        "model.layer1.1.act2",
+        "model.layer2.1.act2",
+        "model.layer3.1.act2",
+        "model.layer4.1.act2"
+    ]
+}

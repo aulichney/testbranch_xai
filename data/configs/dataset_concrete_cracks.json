@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/concrete_cracks",
+    "base_path": "./data/datasets/concrete_cracks/train",
+    "name": "concrete_cracks",
+    "components": null,
+    "ground_truth": null,
+    "classes": [
+        "Negative",
+        "Positive"
+    ],
+    "dataset_type": "classification"
+}

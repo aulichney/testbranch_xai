@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/AB",
+    "base_path": "./data/datasets/AB/train",
+    "name": "AB",
+    "components": "./data/datasets/AB/components",
+    "ground_truth": "./data/datasets/AB/ground_truth",
+    "classes": [
+        "A",
+        "B"
+    ],
+    "dataset_type": "classification"
+}

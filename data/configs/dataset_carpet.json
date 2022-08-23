@@ -1,0 +1,17 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/carpet",
+    "base_path": "./data/datasets/carpet/train",
+    "name": "carpet",
+    "components": "./data/datasets/carpet/components",
+    "ground_truth": "./data/datasets/carpet/ground_truth",
+    "classes": [
+        "color",
+        "cut",
+        "good",
+        "hole",
+        "metal_contamination",
+        "thread"
+    ],
+    "dataset_type": "classification"
+}

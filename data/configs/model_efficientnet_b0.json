@@ -1,0 +1,19 @@
+{
+    "type": "model",
+    "classes": ["0","1"],
+    "class_to_idx": {"0":0, "1":1},
+    "num_classes": 2,
+    "in_chans": 3,
+    "model_name": "efficientnet_b0",
+    "pretrained": true,
+    "checkpoint_path": null,
+    "tcav_layer":"model.global_pool.pool",
+    "cshap_layer":"model.blocks.6.0.conv_pwl",
+    "gradcam_layer" : "model.blocks.6.0.conv_pwl",
+    "eclad_layers":[
+        "model.blocks.3.2.conv_pwl",
+        "model.blocks.4.2.conv_pwl",
+        "model.blocks.5.3.conv_pwl",
+        "model.blocks.6.0.conv_pwl"
+    ]
+}

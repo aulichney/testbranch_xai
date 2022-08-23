@@ -1,0 +1,18 @@
+{
+    "type" : "cshap",
+    "shape" : [224,224],
+    "n_limit_images" : 200,
+    "n_concepts" : 10,
+    "n_epochs":50,
+    "B_threshold":10e-6,
+    "cshap_optim_lr":1.0,
+    "lambda_1":0.000001,
+    "lambda_2":0.000002,
+    "MC_shapely_samples":100,
+    "completeness_tune_epochs":0,
+    "cshap_alpha":0.5,
+    "workers_activations":1,
+    "batch_size":24,
+    "device":"cuda",
+    "n_concept_examples":20
+}

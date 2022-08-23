@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/casting_data",
+    "base_path": "./data/datasets/casting_data/train",
+    "name": "casting_data",
+    "components": null,
+    "ground_truth": null,
+    "classes": [
+        "def_front",
+        "ok_front"
+    ],
+    "dataset_type": "classification"
+}

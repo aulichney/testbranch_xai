@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/colorGB",
+    "base_path": "./data/datasets/colorGB/train",
+    "name": "colorGB",
+    "components": "./data/datasets/colorGB/components",
+    "ground_truth": "./data/datasets/colorGB/ground_truth",
+    "classes": [
+        "B",
+        "G"
+    ],
+    "dataset_type": "classification"
+}

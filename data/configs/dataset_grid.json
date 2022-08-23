@@ -1,0 +1,17 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/grid",
+    "base_path": "./data/datasets/grid/train",
+    "name": "grid",
+    "components": "./data/datasets/grid/components",
+    "ground_truth": "./data/datasets/grid/ground_truth",
+    "classes": [
+        "bent",
+        "broken",
+        "glue",
+        "good",
+        "metal_contamination",
+        "thread"
+    ],
+    "dataset_type": "classification"
+}

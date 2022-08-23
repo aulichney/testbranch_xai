@@ -1,0 +1,16 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/transistor",
+    "base_path": "./data/datasets/transistor/train",
+    "name": "transistor",
+    "components": "./data/datasets/transistor/components",
+    "ground_truth": "./data/datasets/transistor/ground_truth",
+    "classes": [
+        "bent_lead",
+        "cut_lead",
+        "damaged_case",
+        "good",
+        "misplaced"
+    ],
+    "dataset_type": "classification"
+}

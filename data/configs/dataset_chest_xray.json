@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/chest_xray",
+    "base_path": "./data/datasets/chest_xray/train",
+    "name": "chest_xray",
+    "components": null,
+    "ground_truth": null,
+    "classes": [
+        "NORMAL",
+        "PNEUMONIA"
+    ],
+    "dataset_type": "classification"
+}

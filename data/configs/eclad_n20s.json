@@ -1,0 +1,15 @@
+{
+    "type" : "eclad",
+    "n_limit_images" : 200,
+    "n_clusters" : 20,
+    "upsampling_mode":"bilinear",
+    "clustering_method":"MiniBatchKMeans",
+    "eclad_clustering_batches":2,
+    "eclad_sample":1.0,
+    "eclad_alpha":0.5,
+    "eclad_standardscale":true,
+    "workers_activations":2,
+    "batch_size":4,
+    "device":"cuda",
+    "n_concept_examples":10
+}

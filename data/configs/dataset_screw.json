@@ -1,0 +1,17 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/screw",
+    "base_path": "./data/datasets/screw/train",
+    "name": "screw",
+    "components": "./data/datasets/screw/components",
+    "ground_truth": "./data/datasets/screw/ground_truth",
+    "classes": [
+        "good",
+        "manipulated_front",
+        "scratch_head",
+        "scratch_neck",
+        "thread_side",
+        "thread_top"
+    ],
+    "dataset_type": "classification"
+}

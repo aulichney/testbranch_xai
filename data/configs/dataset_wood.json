@@ -1,0 +1,17 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/wood",
+    "base_path": "./data/datasets/wood/train",
+    "name": "wood",
+    "components": "./data/datasets/wood/components",
+    "ground_truth": "./data/datasets/wood/ground_truth",
+    "classes": [
+        "color",
+        "combined",
+        "good",
+        "hole",
+        "liquid",
+        "scratch"
+    ],
+    "dataset_type": "classification"
+}

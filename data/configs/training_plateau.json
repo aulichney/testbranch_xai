@@ -1,0 +1,61 @@
+{
+    "loss_name": "NLLLoss",
+    "min_epochs": 50,
+    "max_epochs": 500,
+    "learning_rate": 0.1,
+    "size_multiplier":5.0, 
+    "auto_lr_find": true,
+    "auto_lrearly_stop_threshold":null,
+    "auto_lr_min":0.001,
+    "auto_lr_max":0.1,
+    "auto_lr_num":200,
+    "optimizer_config":{
+        "type": "SGD",
+        "momentum": 0.9
+    },
+    "scheduler_config":{
+        "type": "ReduceLROnPlateau",
+        "mode": "min",
+        "factor": 0.1,
+        "patience": 10
+    },
+    "scheduler_monitor":"train_loss_epoch",
+    "early_stopping_config":{
+        "monitor": "valid_acc_epoch",
+        "min_delta": 0.001,
+        "patience": 20,
+        "verbose": false,
+        "mode": "max"
+    },
+    "gradient_clip_val":1,
+    "checkpoint_saving_config":{
+        "monitor":"valid_acc_epoch",
+        "filename":"model_{epoch:02d}_{valid_acc_epoch:.4f}",
+        "save_top_k":1,
+        "every_n_epochs":1,
+        "every_n_train_steps":null,
+        "mode":"max"
+    },
+    "transform_train_config": {
+        "config_list": [
+            {"type": "Resize", "size": [224, 224]},
+            {"type": "RandomAffine", "degrees": [0,360], "translate": [0.0, 0.03], "scale":[0.9, 1.1], "shear":[-10, 10]},
+            {"type": "ColorJitter", "brightness":0.3, "contrast":0.3, "saturation": 0.4, "hue": 0.05},
+            {"type": "ToTensor"},
+            {"type": "Normalize","mean": [0.485,0.456,0.406],"std": [0.229,0.224,0.225]}
+        ]
+    },
+    "transform_val_config": {
+        "config_list": [
+            {"type": "Resize","size": [224, 224]},
+            {"type": "ToTensor"},
+            {"type": "Normalize","mean": [0.485,0.456,0.406],"std": [0.229,0.224,0.225]}
+        ]
+    },
+    "dataloader_config": {
+        "batch_size": 24,
+        "num_workers": 6
+    },
+    "train_val_split": 0.85,
+    "shuffle": true
+}

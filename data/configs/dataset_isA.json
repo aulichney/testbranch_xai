@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/isA",
+    "base_path": "./data/datasets/isA/train",
+    "name": "isA",
+    "components": "./data/datasets/isA/components",
+    "ground_truth": "./data/datasets/isA/ground_truth",
+    "classes": [
+        "isA",
+        "notA"
+    ],
+    "dataset_type": "classification"
+}

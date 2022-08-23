@@ -1,0 +1,15 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/oct",
+    "base_path": "./data/datasets/oct/train",
+    "name": "oct",
+    "components": null,
+    "ground_truth": null,
+    "classes": [
+        "CNV",
+        "DME",
+        "DRUSEN",
+        "NORMAL"
+    ],
+    "dataset_type": "classification"
+}

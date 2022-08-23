@@ -1,0 +1,19 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/zipper",
+    "base_path": "./data/datasets/zipper/train",
+    "name": "zipper",
+    "components": "./data/datasets/zipper/components",
+    "ground_truth": "./data/datasets/zipper/ground_truth",
+    "classes": [
+        "broken_teeth",
+        "combined",
+        "fabric_border",
+        "fabric_interior",
+        "good",
+        "rough",
+        "split_teeth",
+        "squeezed_teeth"
+    ],
+    "dataset_type": "classification"
+}

@@ -1,0 +1,16 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/aptos",
+    "base_path": "./data/datasets/aptos/train",
+    "name": "aptos",
+    "components": null,
+    "ground_truth": null,
+    "classes": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+    ],
+    "dataset_type": "classification"
+}

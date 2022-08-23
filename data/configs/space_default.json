@@ -1,0 +1,15 @@
+{
+    "type" : "space",
+    "n_slices" : 7,
+    "n_percentage" : 0.1,
+    "dim_pca" : 25,
+    "n_limit_images" : 1000,
+    "n_tcav_repetitions" : 50,
+    "n_tcav_samples" : 50,
+    "workers_activations" : 1,
+    "batch_size" : 32,
+    "workers_tcav" : 1,
+    "device" : "cuda",
+    "n_concept_examples" : 20,
+    "raw_random" : false
+}

@@ -1,0 +1,17 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/leather",
+    "base_path": "./data/datasets/leather/train",
+    "name": "leather",
+    "components": "./data/datasets/leather/components",
+    "ground_truth": "./data/datasets/leather/ground_truth",
+    "classes": [
+        "color",
+        "cut",
+        "fold",
+        "glue",
+        "good",
+        "poke"
+    ],
+    "dataset_type": "classification"
+}

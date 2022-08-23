@@ -1,0 +1,15 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/bottle",
+    "base_path": "./data/datasets/bottle/train",
+    "name": "bottle",
+    "components": "./data/datasets/bottle/components",
+    "ground_truth": "./data/datasets/bottle/ground_truth",
+    "classes": [
+        "broken_large",
+        "broken_small",
+        "contamination",
+        "good"
+    ],
+    "dataset_type": "classification"
+}

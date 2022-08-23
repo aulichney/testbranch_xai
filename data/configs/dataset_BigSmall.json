@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/BigSmall",
+    "base_path": "./data/datasets/BigSmall/train",
+    "name": "BigSmall",
+    "components": "./data/datasets/BigSmall/components",
+    "ground_truth": "./data/datasets/BigSmall/ground_truth",
+    "classes": [
+        "big",
+        "small"
+    ],
+    "dataset_type": "classification"
+}

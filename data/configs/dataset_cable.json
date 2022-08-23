@@ -1,0 +1,20 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/cable",
+    "base_path": "./data/datasets/cable/train",
+    "name": "cable",
+    "components": "./data/datasets/cable/components",
+    "ground_truth": "./data/datasets/cable/ground_truth",
+    "classes": [
+        "bent_wire",
+        "cable_swap",
+        "combined",
+        "cut_inner_insulation",
+        "cut_outer_insulation",
+        "good",
+        "missing_cable",
+        "missing_wire",
+        "poke_insulation"
+    ],
+    "dataset_type": "classification"
+}

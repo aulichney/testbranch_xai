@@ -1,0 +1,19 @@
+{
+    "type": "model",
+    "classes": ["0","1"],
+    "class_to_idx": {"0":0, "1":1},
+    "num_classes": 2,
+    "in_chans": 3,
+    "model_name": "densenet121",
+    "pretrained": true,
+    "checkpoint_path": null,
+    "tcav_layer":"model.global_pool.pool",
+    "cshap_layer":"model.features.denseblock4.denselayer16.conv2",
+    "gradcam_layer" : "model.features.denseblock4.denselayer16.conv2",
+    "eclad_layers":[
+        "model.features.transition1.conv",
+        "model.features.transition2.conv",
+        "model.features.transition3.conv",
+        "model.features.denseblock4.denselayer16.conv2"
+    ]
+}

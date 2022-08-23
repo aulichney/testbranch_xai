@@ -1,0 +1,17 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/tile",
+    "base_path": "./data/datasets/tile/train",
+    "name": "tile",
+    "components": "./data/datasets/tile/components",
+    "ground_truth": "./data/datasets/tile/ground_truth",
+    "classes": [
+        "crack",
+        "glue_strip",
+        "good",
+        "gray_stroke",
+        "oil",
+        "rough"
+    ],
+    "dataset_type": "classification"
+}

@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/toothbrush",
+    "base_path": "./data/datasets/toothbrush/train",
+    "name": "toothbrush",
+    "components": "./data/datasets/toothbrush/components",
+    "ground_truth": "./data/datasets/toothbrush/ground_truth",
+    "classes": [
+        "defective",
+        "good"
+    ],
+    "dataset_type": "classification"
+}

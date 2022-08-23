@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/ABplus",
+    "base_path": "./data/datasets/ABplus/train",
+    "name": "ABplus",
+    "components": "./data/datasets/ABplus/components",
+    "ground_truth": "./data/datasets/ABplus/ground_truth",
+    "classes": [
+        "A",
+        "B"
+    ],
+    "dataset_type": "classification"
+}

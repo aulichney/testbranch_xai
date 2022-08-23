@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/CO",
+    "base_path": "./data/datasets/CO/train",
+    "name": "CO",
+    "components": "./data/datasets/CO/components",
+    "ground_truth": "./data/datasets/CO/ground_truth",
+    "classes": [
+        "C",
+        "O"
+    ],
+    "dataset_type": "classification"
+}

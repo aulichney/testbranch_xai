@@ -1,0 +1,19 @@
+{
+    "type": "model",
+    "classes": ["0","1"],
+    "class_to_idx": {"0":0, "1":1},
+    "num_classes": 2,
+    "in_chans": 3,
+    "model_name": "vgg16",
+    "pretrained": true,
+    "checkpoint_path": null,
+    "tcav_layer":"model.head.global_pool.pool",
+    "cshap_layer":"model.features.30",
+    "gradcam_layer" : "model.features.29",
+    "eclad_layers":[
+        "model.features.9",
+        "model.features.16",
+        "model.features.23",
+        "model.features.30"
+    ]
+}

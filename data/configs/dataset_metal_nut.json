@@ -1,0 +1,16 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/metal_nut",
+    "base_path": "./data/datasets/metal_nut/train",
+    "name": "metal_nut",
+    "components": "./data/datasets/metal_nut/components",
+    "ground_truth": "./data/datasets/metal_nut/ground_truth",
+    "classes": [
+        "bent",
+        "color",
+        "flip",
+        "good",
+        "scratch"
+    ],
+    "dataset_type": "classification"
+}

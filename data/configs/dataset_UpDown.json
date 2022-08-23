@@ -1,0 +1,13 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/UpDown",
+    "base_path": "./data/datasets/UpDown/train",
+    "name": "UpDown",
+    "components": "./data/datasets/UpDown/components",
+    "ground_truth": "./data/datasets/UpDown/ground_truth",
+    "classes": [
+        "down",
+        "up"
+    ],
+    "dataset_type": "classification"
+}

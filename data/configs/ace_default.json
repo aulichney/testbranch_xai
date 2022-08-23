@@ -1,0 +1,16 @@
+{
+    "type" : "ace",
+    "n_clusters" : 25,
+    "n_segments" : [15, 50, 80],
+    "sigma" : 1.0,
+    "compactness" : 20.0,
+    "n_limit_images" : 200,
+    "n_tcav_repetitions" : 50,
+    "n_tcav_samples" : 50,
+    "workers_activations":1,
+    "batch_size":8,
+    "workers_slic":1,
+    "workers_tcav":1,
+    "device":"cuda",
+    "n_concept_examples":20
+}

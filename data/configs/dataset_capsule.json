@@ -1,0 +1,17 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/capsule",
+    "base_path": "./data/datasets/capsule/train",
+    "name": "capsule",
+    "components": "./data/datasets/capsule/components",
+    "ground_truth": "./data/datasets/capsule/ground_truth",
+    "classes": [
+        "crack",
+        "faulty_imprint",
+        "good",
+        "poke",
+        "scratch",
+        "squeeze"
+    ],
+    "dataset_type": "classification"
+}

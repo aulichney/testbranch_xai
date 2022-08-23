@@ -1,0 +1,19 @@
+{
+    "type": "dataset",
+    "dataset_path": "./data/datasets/pill",
+    "base_path": "./data/datasets/pill/train",
+    "name": "pill",
+    "components": "./data/datasets/pill/components",
+    "ground_truth": "./data/datasets/pill/ground_truth",
+    "classes": [
+        "color",
+        "combined",
+        "contamination",
+        "crack",
+        "faulty_imprint",
+        "good",
+        "pill_type",
+        "scratch"
+    ],
+    "dataset_type": "classification"
+}
