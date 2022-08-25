@@ -121,6 +121,28 @@ python run.py eclad_analysis --path_model="./data/models/AB_resnet18_plateau_0" 
 python run.py cshap_analysis --path_model="./data/models/AB_resnet18_plateau_0" --path_output="./data/results/cshap_AB_resnet18_plateau_0_${variant}" --path_cshap_config="./data/configs/cshap_L7.json" --seed=0 2>&1 | tee -a "./data/logs/cshap_AB_resnet18_plateau_0_L7.txt"
 ```
 
+
+#Annie version: 
+# Execute ACE 
+python run.py ace_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/ace_AB_vgg16_plateaufast_0" --path_ace_config="./data/configs/ace_default.json" --seed=0 2>&1 | tee -a "./data/logs/ace_AB_vgg16_plateaufast_0.txt"
+
+## what is variant? 
+# Execute ECLAD
+python run.py eclad_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/eclad_AB_vgg16_plateaufast_${seed}_${variant}" --path_eclad_config="./data/configs/eclad_${variant}.json" --seed=${seed} 2>&1 | tee -a "./data/logs/eclad_AB_${model}_plateaufast_${seed}_${variant}.txt"
+
+# Execute ConceptShap
+python run.py cshap_analysis --path_model="./data/models/AB_${model}_plateaufast_${seed}" --path_output="./data/results/cshap_${dataset}_${model}_${regime}_${seed}_${variant}" --path_cshap_config="./data/configs/cshap_${variant}.json" --seed=${seed} 2>&1 | tee -a "./data/logs/cshap_${dataset}_${model}_${regime}_${seed}_${variant}.txt"
+
+# where:
+# ${model}: model architecture to train
+# ${dataset}: name of the dataset to use for training
+# ${regime}: training regime, all synthetic dataset experiments were run with the plateau (reduce on plateau) training regime.
+# ${seed}: random seed to use while training
+# ${variant}: refers to the configuration variant of the analysis method
+
+
+
+
 ## Associating concepts to primitives 
 
 Once a model has been trained, the association can be performed with the following command (example for ECLAD):
