@@ -168,7 +168,11 @@ python run.py scatterplot_report_CE --path_dataset_config="./data/configs/datase
 
 ## Annie version:
 ```bash
-python run.py associate_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/association/ace_AB_vgg16_plateaufast_0" --path_analysis="./data/results/ace_AB_vgg16_plateaufast_0" --force=True 2>&1 | tee -a "./data/logs/ace_association_AB_vgg16_plateaufast_0.txt"
+python run.py scatterplot_report_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/reports/ace_AB_vgg16_plateaufast_0" --path_analysis="./data/results/ace_AB_vgg16_plateaufast_0" --force=True 2>&1 | tee -a "./data/logs/ace_reports_AB_vgg16_plateaufast_0.txt"
+```
+
+```bash
+python run.py scatterplot_report_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/reports/ace_AB_vgg16_plateaufast_0" --path_analysis="./data/results/ace_AB_vgg16_plateaufast_0" 2>&1 | tee -a "./data/logs/ace_reports_AB_vgg16_plateaufast_0.txt"
 ```
 
 
