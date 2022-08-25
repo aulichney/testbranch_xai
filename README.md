@@ -87,6 +87,10 @@ python run.py train --path_model_config="./data/configs/model_vgg16.json" --path
 
 ## Executing ECLAD, ACE, and ConceptShap
 
+```bash
+python run.py ace_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/ace_AB_vgg16_plateaufast_0" --path_ace_config="./data/configs/ace_default.json" --seed=0 2>&1 | tee -a "./data/logs/ace_AB_vgg16_plateaufast_0.txt"
+```
+
 Similar to the training, the configurations for the model, dataset, training and xai method must be present in ```./data/configs```.
 To execute any of the methods, a model must have been previously trained. Then, execute:
 
