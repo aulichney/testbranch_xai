@@ -70,11 +70,10 @@ python run.py train --path_model_config="./data/configs/model_${model}.json" --p
 python run.py train --path_model_config="./data/configs/model_vgg16.json" --path_dataset_config="./data/configs/dataset_AB.json" --path_training_config="./data/configs/training_plateau.json" --path_output="./data/models/AB_vgg16_plateau_0" --seed=0 2>&1 | tee -a "./data/logs/training_${dataset}_vgg16_plateau_0.txt"
 ```
 
-# where:
-# ${model}: model architecture to train
-# ${dataset}: name of the dataset to use for training
-# ${regime}: training regime, all synthetic dataset experiments were run with the plateau (reduce on plateau) training regime.
-# ${seed}: random seed to use while training
+```bash
+python run.py train --path_model_config="./data/configs/model_vgg16.json" --path_dataset_config="./data/configs/dataset_AB.json" --path_training_config="./data/configs/training_plateaufast.json" --path_output="./data/models/AB_vgg16_plateaufast_0" --seed=0 2>&1 | tee -a "./data/logs/training_${dataset}_vgg16_plateaufast_0.txt"
+```
+
 
 For example, to train a resnet18, for the AB dataset, with a plateau regime, with a random seed of 0, you can execute:
 
