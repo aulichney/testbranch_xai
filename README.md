@@ -123,6 +123,7 @@ python run.py cshap_analysis --path_model="./data/models/AB_resnet18_plateau_0" 
 
 
 #Annie version: 
+```bash
 # Execute ACE 
 python run.py ace_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/ace_AB_vgg16_plateaufast_0" --path_ace_config="./data/configs/ace_default.json" --seed=0 2>&1 | tee -a "./data/logs/ace_AB_vgg16_plateaufast_0.txt"
 
@@ -139,7 +140,7 @@ python run.py cshap_analysis --path_model="./data/models/AB_${model}_plateaufast
 # ${regime}: training regime, all synthetic dataset experiments were run with the plateau (reduce on plateau) training regime.
 # ${seed}: random seed to use while training
 # ${variant}: refers to the configuration variant of the analysis method
-
+```
 
 
 
