@@ -89,6 +89,10 @@ python run.py train --path_model_config="./data/configs/model_vgg16.json" --path
 
 ```bash
 python run.py ace_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/ace_AB_vgg16_plateaufast_0" --path_ace_config="./data/configs/ace_default.json" --seed=0 2>&1 | tee -a "./data/logs/ace_AB_vgg16_plateaufast_0.txt"
+
+python run.py eclad_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/eclad_AB_vgg16_plateaufast_0" --path_eclad_config="./data/configs/eclad_default.json" --seed=0 2>&1 | tee -a "./data/logs/eclad_AB_vgg16_plateaufast_0.txt"
+
+python run.py cshap_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/cshap_AB_vgg16_plateaufast_0" --path_cshap_config="./data/configs/cshap_default.json" --seed=0 2>&1 | tee -a "./data/logs/cshap_AB_vgg16_plateaufast_0.txt"
 ```
 
 Similar to the training, the configurations for the model, dataset, training and xai method must be present in ```./data/configs```.
@@ -151,6 +155,10 @@ python run.py cshap_analysis --path_model="./data/models/AB_${model}_plateaufast
 ## Associating concepts to primitives 
 
 ```bash
+
+python run.py scatterplot_report_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_resnet18_plateau_0" --path_output="./data/reports/cshap_AB_resnet18_plateau_0_n10s" --path_analysis="./data/results/cshap_AB_resnet18_plateau_0_n10s" --path_association="data/association/cshap_AB_resnet18_plateau_0_n10s" 2>&1 | tee -a "./data/logs/cshap_reports_AB_resnet18_plateau_0_n10s.txt"
+
+
 python run.py scatterplot_report_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/reports/ace_AB_vgg16_plateaufast_0" --path_analysis="./data/results/ace_AB_vgg16_plateaufast_0" --path_association="data/association/ace_AB_vgg16_plateaufast_0" 2>&1 | tee -a "./data/logs/ace_reports_AB_vgg16_plateaufast_0.txt"
 
 
