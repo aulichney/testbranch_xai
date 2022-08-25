@@ -166,6 +166,12 @@ An examle for executing this association for one ECLAD analyis:
 python run.py scatterplot_report_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_resnet18_plateau_0" --path_output="./data/reports/cshap_AB_resnet18_plateau_0_n10s" --path_analysis="./data/results/cshap_AB_resnet18_plateau_0_n10s" --path_association="data/association/cshap_AB_resnet18_plateau_0_n10s" 2>&1 | tee -a "./data/logs/cshap_reports_AB_resnet18_plateau_0_n10s.txt"
 ```
 
+## Annie version:
+```bash
+python run.py associate_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/association/ace_AB_vgg16_plateaufast_0_" --path_analysis="./data/results/ace_AB_vgg16_plateaufast_0_" --force=True 2>&1 | tee -a "./data/logs/ace_association_AB_vgg16_plateaufast_0.txt"
+```
+
+
 ## Scatter plots
 
 A similar script exists for creating the scatter plots shown in the paper.
