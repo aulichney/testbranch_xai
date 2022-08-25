@@ -151,7 +151,7 @@ python run.py cshap_analysis --path_model="./data/models/AB_${model}_plateaufast
 ## Associating concepts to primitives 
 
 ```bash
-python run.py associate_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/association/eclad_AB_vgg16_plateaufast_0" --path_analysis="./data/results/eclad_AB_vgg16_plateaufast_0" --force=True 2>&1 | tee -a "./data/logs/eclad_association_AB_vgg16_plateaufast_0.txt"
+python run.py scatterplot_report_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/association/eclad_AB_vgg16_plateaufast_0" --path_analysis="./data/results/eclad_AB_vgg16_plateaufast_0" --force=True 2>&1 | tee -a "./data/logs/eclad_association_AB_vgg16_plateaufast_0.txt"
 ```
 
 Once a model has been trained, the association can be performed with the following command (example for ECLAD):
