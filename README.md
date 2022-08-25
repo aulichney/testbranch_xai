@@ -66,6 +66,15 @@ python run.py train --path_model_config="./data/configs/model_${model}.json" --p
 # ${seed}: random seed to use while training
 ```
 
+```bash
+python run.py train --path_model_config="./data/configs/model_vgg16.json" --path_dataset_config="./data/configs/dataset_AB.json" --path_training_config="./data/configs/training_plateau.json" --path_output="./data/models/AB_vgg16_plateau_0" --seed=0 2>&1 | tee -a "./data/logs/training_${dataset}_vgg16_plateau_0.txt"
+```
+
+```bash
+python run.py train --path_model_config="./data/configs/model_vgg16.json" --path_dataset_config="./data/configs/dataset_AB.json" --path_training_config="./data/configs/training_plateaufast.json" --path_output="./data/models/AB_vgg16_plateaufast_0" --seed=0 2>&1 | tee -a "./data/logs/training_${dataset}_vgg16_plateaufast_0.txt"
+```
+
+
 For example, to train a resnet18, for the AB dataset, with a plateau regime, with a random seed of 0, you can execute:
 
 ```bash
@@ -112,6 +121,29 @@ python run.py eclad_analysis --path_model="./data/models/AB_resnet18_plateau_0" 
 python run.py cshap_analysis --path_model="./data/models/AB_resnet18_plateau_0" --path_output="./data/results/cshap_AB_resnet18_plateau_0_${variant}" --path_cshap_config="./data/configs/cshap_L7.json" --seed=0 2>&1 | tee -a "./data/logs/cshap_AB_resnet18_plateau_0_L7.txt"
 ```
 
+
+#Annie version: 
+```bash
+# Execute ACE 
+python run.py ace_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/ace_AB_vgg16_plateaufast_0" --path_ace_config="./data/configs/ace_default.json" --seed=0 2>&1 | tee -a "./data/logs/ace_AB_vgg16_plateaufast_0.txt"
+
+## what is variant? 
+# Execute ECLAD
+python run.py eclad_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/eclad_AB_vgg16_plateaufast_${seed}_${variant}" --path_eclad_config="./data/configs/eclad_${variant}.json" --seed=${seed} 2>&1 | tee -a "./data/logs/eclad_AB_${model}_plateaufast_${seed}_${variant}.txt"
+
+# Execute ConceptShap
+python run.py cshap_analysis --path_model="./data/models/AB_${model}_plateaufast_${seed}" --path_output="./data/results/cshap_${dataset}_${model}_${regime}_${seed}_${variant}" --path_cshap_config="./data/configs/cshap_${variant}.json" --seed=${seed} 2>&1 | tee -a "./data/logs/cshap_${dataset}_${model}_${regime}_${seed}_${variant}.txt"
+
+# where:
+# ${model}: model architecture to train
+# ${dataset}: name of the dataset to use for training
+# ${regime}: training regime, all synthetic dataset experiments were run with the plateau (reduce on plateau) training regime.
+# ${seed}: random seed to use while training
+# ${variant}: refers to the configuration variant of the analysis method
+```
+
+
+
 ## Associating concepts to primitives 
 
 Once a model has been trained, the association can be performed with the following command (example for ECLAD):
@@ -133,6 +165,12 @@ An examle for executing this association for one ECLAD analyis:
 ```bash
 python run.py scatterplot_report_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_resnet18_plateau_0" --path_output="./data/reports/cshap_AB_resnet18_plateau_0_n10s" --path_analysis="./data/results/cshap_AB_resnet18_plateau_0_n10s" --path_association="data/association/cshap_AB_resnet18_plateau_0_n10s" 2>&1 | tee -a "./data/logs/cshap_reports_AB_resnet18_plateau_0_n10s.txt"
 ```
+
+## Annie version:
+```bash
+python run.py associate_CE --path_dataset_config="./data/configs/dataset_AB.json" --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/association/ace_AB_vgg16_plateaufast_0_" --path_analysis="./data/results/ace_AB_vgg16_plateaufast_0" --force=True 2>&1 | tee -a "./data/logs/ace_association_AB_vgg16_plateaufast_0.txt"
+```
+
 
 ## Scatter plots
 
