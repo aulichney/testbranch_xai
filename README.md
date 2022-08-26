@@ -87,6 +87,19 @@ python run.py train --path_model_config="./data/configs/model_vgg16.json" --path
 
 ## Executing ECLAD, ACE, and ConceptShap
 
+Annie:
+```bash
+# Execute ACE* 
+python run.py ace_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/ace_AB_vgg16_plateaufast_0" --path_ace_config="./data/configs/ace_default.json" --seed=0 2>&1 | tee -a "./data/logs/ace_AB_vgg16_plateaufast_0.txt"
+
+# Execute ECLAD
+python run.py eclad_analysis --path_model="./data/models/${dataset}_${model}_${regime}_${seed}" --path_output="./data/results/eclad_${dataset}_${model}_${regime}_${seed}_${variant}" --path_eclad_config="./data/configs/eclad_${variant}.json" --seed=${seed} 2>&1 | tee -a "./data/logs/eclad_${dataset}_${model}_${regime}_${seed}_${variant}.txt"
+
+# Execute ConceptShap
+python run.py cshap_analysis --path_model="./data/models/${dataset}_${model}_${regime}_${seed}" --path_output="./data/results/cshap_${dataset}_${model}_${regime}_${seed}_${variant}" --path_cshap_config="./data/configs/cshap_${variant}.json" --seed=${seed} 2>&1 | tee -a "./data/logs/cshap_${dataset}_${model}_${regime}_${seed}_${variant}.txt"
+```
+
+
 ```bash
 python run.py ace_analysis --path_model="./data/models/AB_vgg16_plateaufast_0" --path_output="./data/results/ace_AB_vgg16_plateaufast_0" --path_ace_config="./data/configs/ace_default.json" --seed=0 2>&1 | tee -a "./data/logs/ace_AB_vgg16_plateaufast_0.txt"
 
